@@ -1,1 +1,18 @@
-<p>json-forms-wrapper works!</p>
+<div class="container">
+  <div class="row m-0 w-100 h-100">
+    <div class="col-2 col-lg-3 p-0 d-none d-sm-block"></div>
+    <div class="col-sm-8 col-lg-6 col-12">
+      <app-tabs [tabs]="tabs" [selectedTab]="tabEnum.input" (updateTab)="updateTab($event)"> </app-tabs>
+      <div [ngSwitch]="selectedTab">
+        <div *ngSwitchCase="tabEnum.input">
+          <app-document-input></app-document-input>
+        </div>
+        <div *ngSwitchCase="tabEnum.form">
+          <app-dynamic-form></app-dynamic-form>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-2 col-lg-3 p-0 d-none d-sm-block"></div>
+  </div>
+</div>

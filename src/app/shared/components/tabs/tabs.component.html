@@ -1,1 +1,12 @@
-<p>tabs works!</p>
+<ul class="nav nav-pills">
+  <li *ngFor="let tab of tabs" class="nav-item">
+    <div class="titleCard">
+      <div (click)="selectTab(tab.id)" class="customs-link px-2"
+        [ngClass]="selectedTab === tab.id ? 'active' : 'text-muted'">
+        <div class="link-text py-2 font-weight-bold">
+          {{ tab.title }}
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

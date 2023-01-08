@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class DocumentInputComponent {
 
+  onUpload(event: Event) {
+    const file = (event.target as HTMLInputElement)?.files?.item(0);
+    console.log(file);
+  }
+
+  onDrop(files: any) {
+    const file = files?.item(0);
+    console.log(file);
+  }
 }

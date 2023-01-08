@@ -1,0 +1,28 @@
+@import 'theme-variables';
+
+.file-drop-container {
+  & {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: $light;
+    border: 2px $primary solid;
+    padding: 1px;
+    border-radius: 0.25rem;
+  }
+}
+
+.fileover {
+  border: 3px $primary solid;
+  padding: 0px !important;
+}
+
+.upload-link {
+  & {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+

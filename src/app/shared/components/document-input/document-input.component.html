@@ -1,1 +1,7 @@
-<p>document-input works!</p>
+<div class="row m-4 file-drop-container d-block" appFileUpload (fileDropped)="onDrop($event)">
+  <div class="p-5">
+    <input type="file" style="display: none" id="fileDropRef" #fileDropRef (change)="onUpload($event)" />
+    {{"Drag-and-drop files, or"}}
+    <label class="font-weight-bold upload-link" for="fileDropRef">{{"pick them from your device"}}</label>
+  </div>
+</div>
