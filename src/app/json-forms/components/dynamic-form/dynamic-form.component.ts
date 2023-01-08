@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { TabEnum } from './../../enums/tab-enum.enum';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { JsonInterface } from '../../interfaces/json-interface';
 
@@ -10,6 +11,8 @@ import { JsonInterface } from '../../interfaces/json-interface';
 })
 export class DynamicFormComponent implements OnChanges {
   @Input() jsonInput!: JsonInterface;
+  @Output() updateTab: EventEmitter<TabEnum> = new EventEmitter<TabEnum>();
+
   form: FormGroup = this._fb.group({});
 
   constructor( private readonly _fb: FormBuilder) {}
@@ -28,6 +31,10 @@ export class DynamicFormComponent implements OnChanges {
 
   toggleCheck(name: string) {
     this.form.patchValue({[name]: !this.form.value[name]});
+  }
+
+  backToInput() {
+    this.updateTab.emit(TabEnum.input);
   }
 
   submit() {

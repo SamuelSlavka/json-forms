@@ -1,8 +1,13 @@
 <form [formGroup]="form" class="row mx-4 w-100">
   <textarea class="form-control" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
-    id="json-config-textarea" rows="10" formControlName="jsonInput"
+    id="json-config-textarea" rows="10" formControlName="jsonInput" (change)="updateForms()"
     [ngClass]="{ 'is-invalid': form.controls['jsonInput'].invalid && form.controls['jsonInput'].touched }"></textarea>
     <div class="invalid-feedback">
       {{ 'Input needs to be valid json with correct format' }}
+    </div>
+    <div class=" m-4 d-flex flex-row-reverse">
+      <button class="btn btn-primary" (click)="gotToForm()" [disabled]="!form.valid">
+        {{'Go to form'}}
+      </button>
     </div>
 </form>

@@ -2,14 +2,14 @@
   <div class="row m-0 w-100 h-100">
     <div class="col-1 col-lg-2 p-0 d-none d-sm-block"></div>
     <div class="col-sm-10 col-lg-8 col-12">
-      <app-tabs [tabs]="tabs" [selectedTab]="tabEnum.input" (updateTab)="updateTab($event)"> </app-tabs>
+      <app-tabs [tabs]="tabs" [selectedTab]="selectedTab" (updateTab)="updateTab($event)"> </app-tabs>
       <div [ngSwitch]="selectedTab">
         <div *ngSwitchCase="tabEnum.input">
           <app-document-input (updateInput)="updateInput($event)"></app-document-input>
-          <app-json-input [jsonInput]="jsonInput"></app-json-input>
+          <app-json-input [jsonInput]="jsonInput" (updateTab)="updateTab($event)" (updateInput)="updateInput($event)"></app-json-input>
         </div>
         <div *ngSwitchCase="tabEnum.form">
-          <app-dynamic-form [jsonInput]="jsonInput"></app-dynamic-form>
+          <app-dynamic-form [jsonInput]="jsonInput" (updateTab)="updateTab($event)"></app-dynamic-form>
         </div>
       </div>
 
