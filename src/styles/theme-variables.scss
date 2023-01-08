@@ -11,3 +11,15 @@ $dark: #22223b;
 $gray: #4a4e69;
 $white: #fff;
 $black: #222;
+
+$theme-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  info: $info,
+  warning: $warning,
+  danger: $danger,
+  light: $light,
+  dark: $dark,
+  gray: $gray,
+);

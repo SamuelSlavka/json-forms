@@ -5,6 +5,7 @@ import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.com
 import { JsonFormsWrapperComponent } from './components/json-forms-wrapper/json-forms-wrapper.component';
 import { JsonFormsRoutingModule } from './json-forms-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     JsonFormsRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
-export class JsonFormsModule { }
+export class JsonFormsModule {}

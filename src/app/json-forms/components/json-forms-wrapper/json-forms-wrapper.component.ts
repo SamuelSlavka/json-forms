@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TabInterface } from '../../../shared/interfaces/tab-interface';
 import { TabEnum } from '../../enums/tab-enum.enum';
+import { JsonInterface } from '../../interfaces/json-interface';
 
 @Component({
   selector: 'app-json-forms-wrapper',
@@ -9,6 +10,9 @@ import { TabEnum } from '../../enums/tab-enum.enum';
 })
 export class JsonFormsWrapperComponent {
   tabEnum = TabEnum;
+  selectedTab: TabEnum = TabEnum.input;
+  jsonInput: JsonInterface = {controls: []};
+
   tabs: TabInterface[] = [
     {
       id: TabEnum.input,
@@ -20,9 +24,15 @@ export class JsonFormsWrapperComponent {
     },
   ];
 
-  selectedTab: TabEnum = TabEnum.input;
-
   updateTab(index: TabEnum) {
     this.selectedTab = index;
+  }
+
+  updateInput(from: string) {
+    try {
+      this.jsonInput = JSON.parse(from);
+    } catch (e) {
+      this.jsonInput = {controls: []};
+    }
   }
 }

@@ -1,1 +1,24 @@
-<p>dynamic-form works!</p>
+<form [formGroup]="form" class="row m-0 w-100">
+  <div class="row w-100 mx-0 mt-3" *ngFor="let control of jsonInput.controls">
+    <label class="text-muted">{{control.label}}</label>
+    <div [ngSwitch]="control.type">
+      <div *ngSwitchCase="'textarea'">
+        <textarea class="form-control" rows="2" [formControlName]="control.name" [value]="control.value" [id]="control.id"></textarea>
+      </div>
+      <div *ngSwitchCase="'plaintext'">
+        {{control.value}}
+      </div>
+      <div *ngSwitchCase="'checkbox'">
+        <input [formControlName]="control.name" [type]="control.type" (change)="toggleCheck(control.name)" [id]="control.id"/>
+      </div>
+      <div *ngSwitchCase="'radio'">
+        {{control.value}}
+        <input [formControlName]="control.name" [type]="control.type" (change)="toggleCheck(control.name)" [id]="control.id" />
+      </div>
+      <div *ngSwitchDefault>
+        <input [formControlName]="control.name" [type]="control.type" [value]="control.value" [id]="control.id"/>
+      </div>
+    </div>
+  </div>
+  <button type="butotn" (click)="submit()" class="btn btn-primary mt-3">{{"Submit"}}</button>
+</form>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-document-input',
@@ -7,13 +7,19 @@ import { Component } from '@angular/core';
 })
 export class DocumentInputComponent {
 
+  @Output() updateInput: EventEmitter<string> = new EventEmitter<string>();
+
   onUpload(event: Event) {
     const file = (event.target as HTMLInputElement)?.files?.item(0);
-    console.log(file);
+    file?.text().then(text => {
+      this.updateInput.emit(text);
+    });
   }
 
   onDrop(files: any) {
-    const file = files?.item(0);
-    console.log(file);
+    const file: File = files?.item(0);
+    file?.text().then(text => {
+      this.updateInput.emit(text);
+    });
   }
 }
