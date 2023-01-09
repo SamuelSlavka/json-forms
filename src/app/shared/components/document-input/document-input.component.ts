@@ -16,7 +16,7 @@ export class DocumentInputComponent {
     });
   }
 
-  onDrop(files: any) {
+  onDrop(files: any | FileList) {
     const file: File = files?.item(0);
     file?.text().then(text => {
       this.updateInput.emit(text);

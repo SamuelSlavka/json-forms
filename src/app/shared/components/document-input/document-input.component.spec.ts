@@ -1,4 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { of } from 'rxjs/internal/observable/of';
 
 import { DocumentInputComponent } from './document-input.component';
 
@@ -8,9 +10,9 @@ describe('DocumentInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DocumentInputComponent ]
-    })
-    .compileComponents();
+      declarations: [DocumentInputComponent],
+      imports: [ReactiveFormsModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DocumentInputComponent);
     component = fixture.componentInstance;

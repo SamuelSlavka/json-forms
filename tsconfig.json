@@ -19,12 +19,6 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    // "types": [
-    //   "@angular/localize",
-    //   "@types/jest",
-    //   "jest",
-    //   "node"
-    // ],
     "lib": [
       "ES2022",
       "dom"
