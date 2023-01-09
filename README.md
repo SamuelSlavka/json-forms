@@ -1,27 +1,55 @@
 # JsonForms
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
+Apllication translates json input into simple dynamic form. The input must ahere to JsonInterface interface otherwise it will be ignored. Input can be dragged and dropped, selected by pressing `pick them from your device` or written into textarea.
 
-## Development server
+To run the application:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    $ yarn install
+      
+    $ ng serve 
 
-## Code scaffolding
+Example input file is in source folder called `input.json`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+On submit the form value is printed in console.
 
-## Build
+The available types are:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    input, textarea, checkbox, radio, plaintext
+    
+They can be inseted into type filed inside of control. Based on them diffrent inputs are shown.
 
-## Running unit tests
+```
+export interface JsonInterface {
+  controls: Control[]
+}
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+export interface Control {
+  name: string
+  label: string
+  id: string
+  value: string | boolean
+  type: string
+}
+```
 
-## Running end-to-end tests
+In interface Contol values must be 
+  - `name` signifies forms identifier and must be unique otehrwise the form wont save subseqent files
+  - `label` is the label that shows above input field
+  - `id` is the id of input field
+  - `value` is initial value in the input
+  - `type` is the type, which is string and one of the following `input, textarea, checkbox, radio, plaintext`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+example input:
+```
+{
+"controls": [
+    {
+      "name": "input",
+      "label": "Input:",
+      "value": "text",
+      "type": "text",
+      "id":"text"
+    },
+]
+}
+```

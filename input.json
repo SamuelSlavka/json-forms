@@ -1,0 +1,38 @@
+{
+"controls": [
+    {
+      "name": "input",
+      "label": "Input:",
+      "value": "text",
+      "type": "text",
+      "id":"text"
+    },
+    {
+      "name": "textarea",
+      "label": "Textarea:",
+      "value": "",
+      "type": "textarea",
+      "id":""
+    },
+    {
+      "name": "checkbox",
+      "label": "Checkbox:",
+      "value": "",
+      "type": "checkbox",
+      "id":""
+    },
+    {
+      "name": "radio",
+      "label": "Radio:",
+      "value": "",
+      "type": "radio",
+      "id":""
+    },
+    {
+      "name": "plaintext",
+      "label": "Plaintext:",
+      "value": "plaintext",
+      "type": "plaintext",
+      "id":""
+    }
+  ]}

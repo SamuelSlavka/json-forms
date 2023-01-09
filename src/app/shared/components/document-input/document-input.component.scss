@@ -14,14 +14,19 @@
 }
 
 .fileover {
-  border: 3px $primary solid;
-  padding: 0px !important;
+  & {
+    border: 3px $primary solid;
+    padding: 0px !important;
+  }
 }
 
 .upload-link {
   & {
     cursor: pointer;
     text-decoration: underline;
+  }
+  &:hover {
+    font-weight: 600;
   }
 }
 

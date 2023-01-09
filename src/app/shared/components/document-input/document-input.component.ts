@@ -16,8 +16,8 @@ export class DocumentInputComponent {
     });
   }
 
-  onDrop(files: any | FileList) {
-    const file: File = files?.item(0);
+  onDrop(files: FileList) {
+    const file: File | null = files?.item(0);
     file?.text().then(text => {
       this.updateInput.emit(text);
     });
